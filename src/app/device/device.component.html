@@ -1,0 +1,12 @@
+<li [ngClass]="{'list-group-item': true, 
+    'list-group-item-success': deviceStatus == 'On', 
+    'list-group-item-danger': deviceStatus == 'Off',
+    'm-3': true}">
+
+    <div>
+        <h4 [ngStyle]="{color: getColor()}">Appareil: {{deviceName}} -- Status: {{getStatus()}}</h4>
+        <button class="btn btn-success m-3" (click)="onSwitchOn()" [disabled]="deviceStatus == 'On'">Allumer</button>
+        <button class="btn btn-danger m-3" (click)="onSwitchOff()" [disabled]="deviceStatus == 'Off'">Eteindre</button>
+    </div>
+    
+</li>
