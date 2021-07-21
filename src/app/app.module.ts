@@ -12,6 +12,8 @@ import { DeviceViewComponent } from './device-view/device-view.component';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthService } from './services/auth.service';
 import { SingleDeviceComponent } from './single-device/single-device.component';
+import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
+import { AuthGuard } from './services/auth-guard.service';
 
 const appRoutes: Routes = [
 ]
@@ -22,7 +24,8 @@ const appRoutes: Routes = [
     DeviceComponent,
     AuthComponent,
     DeviceViewComponent,
-    SingleDeviceComponent
+    SingleDeviceComponent,
+    FourOhFourComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,8 @@ const appRoutes: Routes = [
   ],
   providers: [
     DeviceService,
-    AuthService
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
