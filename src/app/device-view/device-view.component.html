@@ -5,7 +5,11 @@
 
     <ul class="list-group mt-3">
 
-      <app-device *ngFor="let device of devices; let i = index" [indexOfDevice]="i" [deviceName]="device.name" [deviceStatus]="device.status">
+      <app-device *ngFor="let device of devices; let i = index" 
+        [indexOfDevice]="i" 
+        [deviceName]="device.name" 
+        [deviceStatus]="device.status"
+        [deviceId]="device.id">
       </app-device>
 
     </ul>

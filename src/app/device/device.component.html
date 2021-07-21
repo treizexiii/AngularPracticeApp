@@ -5,6 +5,7 @@
 
     <div>
         <h4 [ngStyle]="{color: getColor()}">Appareil: {{deviceName}} -- Status: {{getStatus()}}</h4>
+        <a [routerLink]="[deviceId]" >Détails</a>
         <button class="btn btn-success m-3" (click)="onSwitchOn()" [disabled]="deviceStatus == 'On'">Allumer</button>
         <button class="btn btn-danger m-3" (click)="onSwitchOff()" [disabled]="deviceStatus == 'Off'">Eteindre</button>
     </div>

@@ -11,6 +11,7 @@ export class DeviceComponent implements OnInit {
   @Input() deviceName: string;
   @Input() deviceStatus: string;
   @Input() indexOfDevice: number;
+  @Input() deviceId: number;
 
   constructor(private service: DeviceService) {
     this.deviceName = "";

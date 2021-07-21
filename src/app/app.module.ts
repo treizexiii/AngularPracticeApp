@@ -4,27 +4,25 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FirstComponentComponent } from './first-component/first-component.component';
 import { DeviceComponent } from './device/device.component';
 
 import { DeviceService } from './services/device.service';
 import { AuthComponent } from './auth/auth.component';
 import { DeviceViewComponent } from './device-view/device-view.component';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthService } from './services/auth.service';
+import { SingleDeviceComponent } from './single-device/single-device.component';
 
 const appRoutes: Routes = [
-  { path: 'devices', component: DeviceViewComponent },
-  { path: 'auth', component: AuthComponent },
-  { path: '', component: DeviceViewComponent }
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
-    FirstComponentComponent,
     DeviceComponent,
     AuthComponent,
-    DeviceViewComponent
+    DeviceViewComponent,
+    SingleDeviceComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +31,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
-    DeviceService
+    DeviceService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

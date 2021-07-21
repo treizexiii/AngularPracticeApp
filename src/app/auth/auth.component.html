@@ -1,1 +1,8 @@
-<p>auth works!</p>
+<div class="row text-center">
+    <h2 class="title mt-3">Authentification</h2>
+
+    <div>
+        <button class="btn btn-success m-3" *ngIf="!authStatus" (click)="onSignIn()">Se connecter</button>
+        <button class="btn btn-danger m-3" *ngIf="authStatus" (click)="onSignOut()">Se déconnecter</button>
+    </div>
+</div>
