@@ -14,9 +14,7 @@ import { AuthService } from './services/auth.service';
 import { SingleDeviceComponent } from './single-device/single-device.component';
 import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
 import { AuthGuard } from './services/auth-guard.service';
-
-const appRoutes: Routes = [
-]
+import { EditDeviceComponent } from './edit-device/edit-device.component';
 
 @NgModule({
   declarations: [
@@ -25,13 +23,13 @@ const appRoutes: Routes = [
     AuthComponent,
     DeviceViewComponent,
     SingleDeviceComponent,
-    FourOhFourComponent
+    FourOhFourComponent,
+    EditDeviceComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
   ],
   providers: [
     DeviceService,

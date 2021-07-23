@@ -1,6 +1,11 @@
+import { Subject } from 'rxjs';
 import { Device } from '../models/device.model';
 export class DeviceService {
-    devices: Device[] = [
+
+    // Voir doc EricJS pour information sur les observables
+    deviceSubject = new Subject<any[]>();
+
+    private devices: Device[] = [
         {
             id: 1,
             name: "Ordinateur",
@@ -23,6 +28,10 @@ export class DeviceService {
         }
     ];
 
+    emitDeviceSubject() {
+        this.deviceSubject.next(this.devices.slice());
+    }
+
     getDeviceById(id: number) {
         const device: Device = this.devices.find(
             (deviceObject) => {
@@ -36,19 +45,23 @@ export class DeviceService {
         for (let device of this.devices) {
             device.status = "On";
         }
+        this.emitDeviceSubject();
     }
 
     switchOffAll(): void {
         for (let device of this.devices) {
             device.status = "Off";
         }
+        this.emitDeviceSubject();
     }
 
     switchOnByIndex(index: number): void {
         this.devices[index].status = "On";
+        this.emitDeviceSubject();
     }
 
     switchOffyIndex(index: number): void {
         this.devices[index].status = "Off";
+        this.emitDeviceSubject();
     }
 }
