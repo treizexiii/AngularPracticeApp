@@ -64,4 +64,14 @@ export class DeviceService {
         this.devices[index].status = "Off";
         this.emitDeviceSubject();
     }
+
+    addDevice(name: string, status: string) {
+        const newDevice: Device = new Device();
+        newDevice.name = name;
+        newDevice.status = status;
+        newDevice.id = this.devices.length;
+
+        this.devices.push(newDevice);
+        this.emitDeviceSubject();
+    }
 }

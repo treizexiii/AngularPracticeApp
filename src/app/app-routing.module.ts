@@ -6,11 +6,13 @@ import { SingleDeviceComponent } from './single-device/single-device.component';
 import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
 import { AuthGuard } from './services/auth-guard.service';
 import { EditDeviceComponent } from './edit-device/edit-device.component';
+import { UserListComponent } from './user-list/user-list.component';
 
 const routes: Routes = [
   { path: 'devices', canActivate: [AuthGuard], component: DeviceViewComponent },
   { path: 'devices/:id', canActivate: [AuthGuard], component: SingleDeviceComponent },
   { path: 'edit', canActivate: [AuthGuard], component: EditDeviceComponent },
+  { path: 'users', canActivate: [AuthGuard], component: UserListComponent },
   { path: 'auth', component: AuthComponent },
   { path: '', canActivate: [AuthGuard], component: DeviceViewComponent },
   { path: 'not-found', component: FourOhFourComponent },

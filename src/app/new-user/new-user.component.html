@@ -1,0 +1,12 @@
+<div class="row text-center">
+    <h2 class="title mt-3">Enregistrer un utilisateur</h2>
+    <form [formGroup] (ngSubmit)="onSubmitForm()">
+        <label for="firstName">Prénom : </label>
+        <input type="text" class="form-control" id="firstName" formControlName="firstName">
+        <label for="lastName">Nom : </label>
+        <input type="text" class="form-control" id="lastName" formControlName="lastName">
+        <label for="email">E-mail : </label>
+        <input type="text" class="form-control" id="email" formControlName="email">
+        <button class="btn btn-primary" type="submit">Enregistrer</button>
+    </form>
+</div>
