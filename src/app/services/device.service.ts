@@ -1,32 +1,17 @@
+import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Device } from '../models/device.model';
+import { HttpClient } from '@angular/common/http';
+
+@Injectable()
 export class DeviceService {
 
     // Voir doc EricJS pour information sur les observables
     deviceSubject = new Subject<any[]>();
 
-    private devices: Device[] = [
-        {
-            id: 1,
-            name: "Ordinateur",
-            status: 'On'
-        },
-        {
-            id: 2,
-            name: "Télévision",
-            status: 'On'
-        },
-        {
-            id: 3,
-            name: "Cafetière",
-            status: 'Off'
-        },
-        {
-            id: 4,
-            name: "Machine à laver",
-            status: "Off"
-        }
-    ];
+    private devices: Device[] = [];
+
+    constructor(private httpClient: HttpClient) { }
 
     emitDeviceSubject() {
         this.deviceSubject.next(this.devices.slice());
@@ -73,5 +58,28 @@ export class DeviceService {
 
         this.devices.push(newDevice);
         this.emitDeviceSubject();
+    }
+
+    saveDeviceToDatabase() {
+        this.httpClient.put('https://http-client-demo-e9eb6-default-rtdb.europe-west1.firebasedatabase.app/devices.json', this.devices).subscribe(
+            () => {
+                console.log('Enregistrement terminé.');
+            },
+            (error) => {
+                console.log(`Erreur de sauvegarde: ${error}`);
+            }
+        );
+    }
+
+    getDeviceFromeDatabase() {
+        this.httpClient.get<any[]>('https://http-client-demo-e9eb6-default-rtdb.europe-west1.firebasedatabase.app/devices.json').subscribe(
+            (response) => {
+                this.devices = response;
+                this.emitDeviceSubject();
+            },
+            (error) => {
+                console.log(`Erreur de chargement: ${error}`);
+            }
+        );
     }
 }

@@ -1,5 +1,6 @@
 <div class="row text-center">
     <h2 class="title mt-3">List des utilisateurs</h2>
+    <a routerLink="/new-user">Nouvel utilisateur</a>
     <ul class="list-group">
         <li class="list-group-item" *ngFor="let user of users">
             <h3>{{user.firstName}} {{user.lastName}}</h3>

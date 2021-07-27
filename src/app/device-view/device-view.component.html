@@ -18,6 +18,10 @@
       <button class="btn btn-success m-3" [disabled]="!isAuth" (click)="onTurnOn()">Interrupteur On</button>
       <button class="btn btn-danger m-3" [disabled]="!isAuth" (click)="onTurnOff()">Interrupteur Off</button>
     </div>
+    <div>
+      <button class="btn btn-primary m-3" (click)="onSave()">Enregistrer</button>
+      <button class="btn btn-info m-3" (click)="onFetch()">Charger</button>
+    </div>
 
   </div>
   
